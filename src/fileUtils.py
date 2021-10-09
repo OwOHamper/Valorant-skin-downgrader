@@ -1,6 +1,6 @@
 import os
 import time
-
+from colr import color
 
 class FileUtils():
     def __init__(self):
@@ -80,7 +80,7 @@ class FileUtils():
                             file.seek(0, os.SEEK_END)
                             exit = True
                 if "[playerLoadoutUpdate]" in line:
-                    print("Inventory update!")
+                    print(color("Downgrade loaded!", fore=(0, 220, 220)))
                     return True
 
     def modifyInventory(self, inventory, config):
