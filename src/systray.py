@@ -2,7 +2,7 @@ import pystray
 from pystray import MenuItem as item
 from PIL import Image
 import ctypes
-import sys
+import os
 
 
 class Systray():
@@ -29,7 +29,9 @@ class Systray():
 
 
     def loop(self):
-        menu = pystray.Menu(item('Show/Hide window', lambda:  self.on_clicked())
+        menu = pystray.Menu(
+                   item('Show/Hide window', lambda:  self.on_clicked()),
+                   item('Quit', lambda:  os._exit(1)())
         )
 
 

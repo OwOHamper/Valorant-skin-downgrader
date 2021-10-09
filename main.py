@@ -13,6 +13,14 @@ from src import systray
 
 
 def main():
+    handle = ctypes.windll.kernel32.GetConsoleWindow()
+    ctypes.windll.user32.ShowWindow(handle, 0)
+    tray = systray.Systray(handle)
+    tray.closed = True
+
+    tray = Thread(target=tray.loop)
+    tray.start()
+
     FileUtils = fileUtils.FileUtils()
     lockfile = FileUtils.waitForLockfile()
 
@@ -21,14 +29,7 @@ def main():
     val = api.Api(lockfile, region, version)
 
 
-    handle = ctypes.windll.kernel32.GetConsoleWindow()
-    tray = systray.Systray(handle)
 
-    ctypes.windll.user32.ShowWindow(handle, 0)
-    tray.closed = True
-
-    tray = Thread(target=tray.loop)
-    tray.start()
 
 
 
@@ -37,16 +38,20 @@ def main():
             config = json.load(file)
             inv = val.get_inventory()
             valskins = requests.get("https://valorant-api.com/v1/weapons/skins").json()
-            print("Currently downgrading skins:")
+            message_printed = False
+
             for gun in config[inv.json()["Subject"]]:
                 for valgun in valskins["data"]:
                     if gun["skinID"] == valgun["uuid"]:
                         for level in valgun["levels"]:
                             if level["uuid"] == gun["levelID"]:
                                 rgb_color = val.tierDict[valgun["contentTierUuid"]]
+                                if not message_printed:
+                                    print("Currently downgrading skins:")
+                                    message_printed = True
                                 print("   " + color(level["displayName"], fore=rgb_color))
 
-    except FileNotFoundError:
+    except (FileNotFoundError, KeyError):
         print("Customize downgrader with config.py!")
         print("This program will close in 5 seconds!")
         time.sleep(5)

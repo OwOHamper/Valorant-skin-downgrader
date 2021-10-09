@@ -29,7 +29,9 @@ class ConfigUtils():
                         if currentConfig[self.puuid][i]["skinID"] == skin_uuid:
                             newConfig[self.puuid][i]["levelID"] = level_uuid
                             newConfig[self.puuid][i]["chromaID"] = chroma_uuid
-
+            else:
+                newConfig.update({self.puuid: []})
+                newConfig[self.puuid].append({"skinID": skin_uuid, "levelID": level_uuid, "chromaID": chroma_uuid})
 
 
 
