@@ -1,5 +1,7 @@
 import json
 import os
+import time
+
 import requests
 from colr import color
 import ctypes
@@ -41,6 +43,8 @@ def main():
                                 print("   " + color(level["displayName"], fore=rgb_color))
     except FileNotFoundError:
         print("Customize downgrader with config.py!")
+        print("This program will close in 5 seconds!")
+        time.sleep(5)
         os._exit(1)
 
     while True:
