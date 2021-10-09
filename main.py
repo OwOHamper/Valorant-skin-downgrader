@@ -52,6 +52,12 @@ def main():
         time.sleep(5)
         os._exit(1)
 
+    inv = val.get_inventory()
+    with open("config.json", "r") as file:
+        config = json.load(file)
+    modifiedInv = FileUtils.modifyInventory(inv.json(), config)
+    val.put_inventory(modifiedInv)
+
     while True:
         FileUtils.InventoryLoop()
         inv = val.get_inventory()
