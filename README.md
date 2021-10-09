@@ -13,7 +13,7 @@ Application that automatically downgrades your skin.
 pip install -r requirements.txt
 ```
 
-To make the program start automatically create `main.py` shortcut in `shell:startup`startup
+To make the program start automatically create `main.py` shortcut in `shell:startup` startup
 accessible by pressing `Win+R` and typing `shell:startup`.
 
 ## Usage
