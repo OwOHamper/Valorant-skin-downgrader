@@ -13,7 +13,7 @@ Application that automatically downgrades your skin.
 pip install -r requirements.txt
 ```
 
-To make the program start automatically on startup run [addToStartup.py](repo/addToStartup.py)
+To make the program start automatically on startup run [addToStartup.py](/addToStartup.py)
 
 ## Usage
 Run `config.py` to select which skins to downgrade.
