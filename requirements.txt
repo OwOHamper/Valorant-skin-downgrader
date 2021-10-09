@@ -1,0 +1,6 @@
+requests~=2.26.0
+urllib3~=1.26.6
+pystray~=0.17.3
+Pillow~=8.3.2
+inquirerpy~=0.2.4
+Colr~=0.9.1
