@@ -4,7 +4,7 @@ Application that automatically downgrades your skin.
 (Can be minimed into tray)
 
 ![image](https://user-images.githubusercontent.com/74879467/136657291-bf49ee8a-2faa-476a-a57d-6ff712dd5975.png)
-![image](https://user-images.githubusercontent.com/74879467/136657295-224cdf20-ce1f-49c4-bc23-06cdd831f22b.png)
+![image](https://user-images.githubusercontent.com/74879467/136664672-7891df41-f3c4-41ff-9467-4c005b6c4c81.png)
 
 
 ## Installation
@@ -13,8 +13,7 @@ Application that automatically downgrades your skin.
 pip install -r requirements.txt
 ```
 
-To make the program start automatically create `main.py` shortcut in `shell:startup` startup
-accessible by pressing `Win+R` and typing `shell:startup`.
+To make the program start automatically on startup run [addToStartup.py](/addToStartup.py)
 
 ## Usage
 Run `config.py` to select which skins to downgrade.
