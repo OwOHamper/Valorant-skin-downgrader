@@ -24,9 +24,13 @@ def main():
     handle = ctypes.windll.kernel32.GetConsoleWindow()
     tray = systray.Systray(handle)
 
+    ctypes.windll.user32.ShowWindow(handle, 0)
+    tray.closed = True
+
     tray = Thread(target=tray.loop)
     tray.start()
-    # tray.loop()
+
+
 
     try:
         with open("config.json", "r") as file:
@@ -41,6 +45,7 @@ def main():
                             if level["uuid"] == gun["levelID"]:
                                 rgb_color = val.tierDict[valgun["contentTierUuid"]]
                                 print("   " + color(level["displayName"], fore=rgb_color))
+
     except FileNotFoundError:
         print("Customize downgrader with config.py!")
         print("This program will close in 5 seconds!")
