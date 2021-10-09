@@ -71,7 +71,7 @@ class FileUtils():
                         time.sleep(0.5)
                         continue
                     line += tail
-                if "Flush completed successfully." in line:
+                if "Log file closed" in line:
                     while not exit:
                         file.seek(0, 0)
                         if first_line == file.readline():
