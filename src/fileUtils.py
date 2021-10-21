@@ -79,7 +79,7 @@ class FileUtils():
                         else:
                             file.seek(0, os.SEEK_END)
                             exit = True
-                if "[playerLoadoutUpdate]" in line:
+                if "[playerLoadoutUpdate]" in line or "[Party_EnterMatchmakingQueue]" in line:
                     print(color("Downgrade loaded!", fore=(0, 220, 220)))
                     return True
 
