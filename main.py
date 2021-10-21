@@ -17,6 +17,7 @@ def main():
     ctypes.windll.user32.ShowWindow(handle, 0)
     tray = systray.Systray(handle)
     tray.closed = True
+    os.system("cls")
 
     tray = Thread(target=tray.loop)
     tray.start()
@@ -61,6 +62,7 @@ def main():
     with open("config.json", "r") as file:
         config = json.load(file)
     modifiedInv = FileUtils.modifyInventory(inv.json(), config)
+    time.sleep(25)
     val.put_inventory(modifiedInv)
 
     while True:
